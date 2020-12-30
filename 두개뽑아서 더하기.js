@@ -12,3 +12,4 @@ function solution(numbers) {
     console.log(answer)
     return answer;
 }
+
