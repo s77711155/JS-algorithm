@@ -1,5 +1,7 @@
 /*
     스택/큐
+    ++i (전위증가) : i의 값이 1 증가된 후 증가된 값을 리턴한다
+    i++ (후위증가) : 먼저 해당 연산을 수행하고 나서, i 의 값을 1 증가시킴.
  */
 
 // while문안에서 splice를 해서 같이 배포할 날을 빼주니깐 인덱스 값이 바뀌면서 forEach 돌때 혼란이 옴
@@ -51,7 +53,30 @@ function sol(process, speed) {
 20
 1
   */
+ function sol(process, speed) {
+    let day = [];
+    let result =[]
+    for (let i in process) {
+      day.push(Math.ceil((100 - process[i]) / speed[i]));
+    }
 
+    let maxDay = day[0]
+    
+    for(let i=0,j=0; i<day.length; i++){
+        if(day[i] <= maxDay){ // 7보다 작거나 같으면
+            result[j] +=1
+        }else {  //9
+            maxDay = day[i];
+            result[++j] =1 
+        }
+    }
+    console.log(sol([93, 30, 55], [1, 30, 5]);
+    
+  
+  // 7 3 9
+  
+    return result;
+  }
 
   //다른 사람 풀이
   function solution(progresses, speeds) {
