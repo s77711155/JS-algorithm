@@ -65,3 +65,55 @@ function solution(n, lost, reserve) {
   }
   
   console.log(solution(		9, [2, 4,6,8,9], [1,2,5,8,4]),'해답')
+
+// 다른 사람 풀이 
+  function solution(n, lost, reserve) {
+    var realLost = lost.filter(a => !reserve.includes(a));
+    var realReserve = reserve.filter(a => !lost.includes(a));
+    
+    return n - realLost.filter(a => {
+        var b = realReserve.find(r => Math.abs(r-a) <= 1);
+        if(!b) return true;
+        realReserve = realReserve.filter(r => r !== b);
+    }).length;
+}
+
+// 다른 사람 풀이 2
+function solution(n, lost, reserve) {
+    let answer = 0;
+    let uniform = [];
+    
+    // 초기 셋팅
+    // 체육복을 1번씩 가지고 있음
+    for(let i = 0; i < n; i++) {
+        uniform[i] = 1;
+    }
+    // 도난당한 사람은 체육복이 0개
+    for(let i = 0; i < lost.length; i++) {        
+        uniform[lost[i]-1] = 0;
+    }
+    // 여벌을 가지고 있는 사람은 +1개를 해줌, 2개가 아닌 이유는 도난당했는데 여벌있으면 1개니까
+    for(let i = 0; i < reserve.length; i++) {
+        uniform[reserve[i]-1] += 1;
+    }
+    
+    for(let i = 0; i < n; i++) { // 체육복이 0개일 경우 빌릴수 있는지 확인
+        if (uniform[i] == 0 && uniform[i-1] == 2) { // 앞번호 체육복을 빌리는 경우
+        	// 한개씩 나눔
+            uniform[i-1] = 1; 
+            uniform[i] = 1;
+        } else if (uniform[i] == 0 && uniform[i+1] == 2) { // 뒷번호 체육복을 빌리는 경우
+            // 한개씩 나눔
+            uniform[i] = 1;
+            uniform[i+1] = 1;
+        }
+    }
+    
+    for(let i = 0; i < n; i++) {
+        if (uniform[i] > 0) { // 체육복이 1개 이상 가진 경우
+            answer++; // 수업 참여 가능 인원 카운트
+        }
+    }
+    
+    return answer;
+}
