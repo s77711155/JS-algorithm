@@ -4,4 +4,4 @@ function solution(seoul) {
     return `김서방은 ${answer}에 있다`;
 }
 
-console.log(solution(['Jane', 'Kim']),'결과')
+console.log(solution(['Jane', 'Kim']),'결과') 
