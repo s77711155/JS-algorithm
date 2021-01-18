@@ -63,3 +63,87 @@ function solution(priorities, location) { //중요도, 요청 문서 index
     }
     return answer;
 }
+
+function solution(priorities, location) {
+    var arr = priorities.map((priority, index) => {
+        return {
+            index: index, priority: priority
+        };
+    });
+
+    var queue = [];
+
+    while(arr.length > 0) {
+        var firstEle = arr.shift();
+        var hasHighPriority = arr.some(ele => ele.priority > firstEle.priority);
+        if (hasHighPriority) {
+            arr.push(firstEle);
+        } else {
+            queue.push(firstEle);
+        }
+    }
+
+    return queue.findIndex(queueEle => queueEle.index === location) + 1;
+}
+
+function solution(priorities, location) {
+    var answer = 0;
+
+    while(priorities.length > 0) {
+        let job = priorities.shift();
+        if(priorities.some(i => i > job)) {
+            priorities.push(job);
+            if(location == 0) location = priorities.length - 1;
+            else location--;
+        }
+        else {
+            answer++;
+            if(location == 0) return answer;
+            else location--;
+        }
+    }
+
+    return answer;
+}
+
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+function solution(priorities, location) {
+    var arr = priorities.map((priority, index) => {
+        return {
+            index: index, priority: priority
+        };
+    });
+
+    var queue = [];
+
+    while(arr.length > 0) {
+        var firstEle = arr.shift();
+        var hasHighPriority = arr.some(ele => ele.priority > firstEle.priority);
+        if (hasHighPriority) {
+            arr.push(firstEle);
+        } else {
+            queue.push(firstEle);
+        }
+    }
+
+    return queue.findIndex(queueEle => queueEle.index === location) + 1;
+}
