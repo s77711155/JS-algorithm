@@ -1,7 +1,8 @@
 //현재 대기목록에 있는 문서의 중요도가 순서대로 담긴 배열 priorities
 // 내가 인쇄를 요청한 문서가 현재 대기목록의 어떤 위치에 있는지를 알려주는 location
 
-// some() 함수 사용
+// some() 함수 사용 some 함수는 배열의 요소 중 하나라도 callbackFunction에서 true를 리턴하면 true를 리턴 합니다.
+
 function solution(priorities, location) {
     let answer = 0
     let find = priorities[location];
@@ -106,26 +107,6 @@ function solution(priorities, location) {
     return answer;
 }
 
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
 function solution(priorities, location) {
     var arr = priorities.map((priority, index) => {
         return {
