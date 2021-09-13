@@ -81,4 +81,7 @@ return result
 }
 
 
+// find 메소드
+//.find()는 .filter()와 다르게 찾고 싶은 요소를 검색한 후에는 즉시 검색을 종료한다.
+
 
