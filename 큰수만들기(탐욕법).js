@@ -57,7 +57,7 @@
 //     }
 // }
 
-
+// todo
 function solution(number, len) {
     let result = []
     for(let i =0; i<= number.length; i++){

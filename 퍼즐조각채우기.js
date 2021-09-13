@@ -1,3 +1,4 @@
+// todo
 function solution(game_board, table) {
    const background = [...game_board];
 
