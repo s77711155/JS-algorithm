@@ -1,0 +1,27 @@
+// 다음 객체가 주어졋을때 한국의 면접과 가장 비슷한 국가와 그차이를 출력
+// 최대값을 넣구 하나씩 비교해서 제일 작은 값을 찾는다
+
+const nationWidth = {
+    'korea': 220877,
+    'Rusia': 17098242,
+    'China': 9596961,
+    'France': 543965,
+    'Japan': 377915,
+    'England' : 242900,
+};
+
+let korea = nationWidth['korea'];
+delete nationWidth['korea']
+let entry = Object.entries(nationWidth);
+// 비교할 값을 찾기 위해 기본값으로 최대값을 넣는다
+let gap = Math.max.apply(null, Object.values(nationWidth));
+let result =  [];
+for (let i in entry) {
+    if (gap > entry[i][1] - korea) {
+        gap = entry[i][1];
+        result = entry
+    }
+}
+
+let answer = [result[0],  result[1] - korea]
+
