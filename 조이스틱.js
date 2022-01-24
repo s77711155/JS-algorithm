@@ -58,3 +58,39 @@ function solution(name) {
 }
 
 console.log(solution('JEROEN'),'정답')
+
+function solution(name) {
+    var answer = 0;
+    console.log(name)
+    let ACode = 65
+    let ZCode = 90;
+    let minMove=name.length-1;
+
+    // 뒷부터 새는 경우
+
+
+    for(let i=0;i <= nameArr.length-1; i++) {
+        let nowCode = name.charCodeAt(i);
+        if (nameArr[i] === 'A'){
+            continue
+        }
+        let add = Math.abs(nowCode - ACode) < Math.abs(nowCode - ZCode) ? Math.abs(nowCode - ACode) : Math.abs(nowCode - ZCode) + 1
+        // 마지막 자리 제외하고 옆으로 이동 횟수 추가
+        answer += i === name.length -1 ? 0 : 1
+
+
+    }
+
+
+    return answer;
+}
+
+
+const repeatA = (name) => {
+    let count = 0;
+    for (let i = 0; i < name.length; i++) {
+        if (name[i] !== "A") break;
+        count++;
+    }
+    return count;
+};

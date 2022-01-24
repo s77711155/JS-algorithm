@@ -104,3 +104,46 @@ function f(w) {
 // 재귀함수에 인자 w로 문자열 v를 넣어 결과를 반환받는다.
 //     문자열 u의 처음, 마지막 문자를 제거하고, 나머지 문자열에서 모든 괄호를 반대방향으로 바꾼다.
 // "("  solution(v)  ")"  변화된 문자열 u 을 이어 붙여 반환한다.
+
+
+/*
+* do{
+*  조건이 참일 동안 실행할 코드
+* }
+* while(조건)
+*
+* */
+
+
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+function reverse(str) {
+    return str.slice(1, str.length - 1).split("").map((c) => (c === "(" ? ")" : "(")).join("");
+}
+
+function solution(p) {
+    if (p.length < 1) return "";
+
+    let balance = 0;
+    let pivot = 0;
+    do { balance += p[pivot++] === "(" ? 1 : -1 } while (balance !== 0);
+
+    const u = p.slice(0, pivot);
+    const v = solution(p.slice(pivot, p.length));
+
+    if (u[0] === "(" && u[u.length - 1] == ")") return u + v;
+    else return "(" + v + ")" + reverse(u);
+}
