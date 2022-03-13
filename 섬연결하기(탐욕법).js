@@ -71,19 +71,6 @@ console.log(solution(4, [[0,1,1],[0,2,2],[1,2,5],[1,3,1],[2,3,8]]))
 
 // 다른 사람 풀이
 
-
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
 function solution(n, costs) {
     costs.sort((a,b) => a[2] - b[2]);
     let [from, to, answer] = costs.shift();
