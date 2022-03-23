@@ -42,3 +42,6 @@ function solution(n, works) {
     console.log(result,'result')
     return result
 }
+
+
+isNaN()

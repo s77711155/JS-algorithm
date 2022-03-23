@@ -18,7 +18,35 @@ function s(arr1, arr2) {
 // 공통 원소 구하기
 
 /// 최대 매출 구하기
+function f(arr,k) {
+    let max = 0;
+    let result = []
+    for(let i=0; i<= arr.length-1; i++){
+        let temp=0;
+        let r =[];
+        console.log(i,'=======================')
+        for (let j=i; j<=k+i-1;j++){
+            console.log(j,'jjjjjjjjjjjjjj')
+            temp += arr[j];
+            r.push(j);
+            console.log(r,'r')
+            if (j === k+j) {
+                if (max > temp) {
+                    r = [];
+                }else  {
+                    max = temp
+                    result = r
+                }
+            }
+        }
+    }
+    return result
+}
+console.log(f([12,15,11,20,25,10,20,19,13,15],4))
 
-function f() {
+// 슬라이드 윈도우 => 밀어 간다
+function f1() {
+    let answeer, sum=0;
 
+    return answeer
 }
