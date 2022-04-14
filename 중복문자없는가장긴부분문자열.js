@@ -75,5 +75,5 @@ const longestUniqueSub = str => [...str].reduce((res, char, index, src) => {
     return res;
 }, {start: -1, len: 1}).len;
 
-console.log(longestUniqueSub(src));
-console.log(getLengthOfStr('dvdf'));
+// console.log(longestUniqueSub(src));
+console.log(getLengthOfStr('abcabcdefabc'));
