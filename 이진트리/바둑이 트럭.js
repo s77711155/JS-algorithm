@@ -4,6 +4,7 @@ function f(wegiht, arr) {
     let answer = 0
     function dfs(L, sum) {
         if (L === arr.length ){
+            // 최대 값을 넘으면 아예 코드 실행이 멈추도록
             if (sum > wegiht) return
             console.log(arr[L])
             answer = Math.max(answer, sum)

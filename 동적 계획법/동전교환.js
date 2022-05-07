@@ -17,11 +17,7 @@ function f(n,arr,money) {
             //     dy[j] = dy[j-target] +1;
             // }
             dy[j] = Math.min(dy[j], dy[j - arr[i]]+ 1)
-        }
-        console.log(dy,'dyy')
-    }
-        //console.log(dy,'dddyyyy')
-
+        }9
 }
 
 console.log(f(n,arr,15))

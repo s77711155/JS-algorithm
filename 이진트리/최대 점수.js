@@ -7,6 +7,7 @@ function f(time, arr) {
  function dfs(L, score, t) {
      // arr[L] = [점수, 시간]
     if (arr.length===L){
+        // 문제에서 제공한시간을 넘어가면 안되니깐
         if (time < t) return;
         result = Math.max(result, score)
     }else{
