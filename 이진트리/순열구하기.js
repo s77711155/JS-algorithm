@@ -13,6 +13,8 @@ function f(arr, n) {
                     temp[L] = arr[i];
                     console.log(temp)
                     dfs(L+1)
+
+                    // 백을 할때는 다시 체크를 풀어줘야함
                     check[i]=0
                 }
             }

@@ -4,6 +4,7 @@
 * 가중치 그래프 graph[a][b] = 가중치
 * */
 
+// 인접행렬로 그래프를 파악한다
 function f(vertex, arr) {
     let answer=0;
     let graph=Array.from(Array(vertex+1), ()=>Array(vertex+1).fill(0));
