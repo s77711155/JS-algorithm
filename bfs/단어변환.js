@@ -1,43 +1,86 @@
+// function solution(begin, target, words) {
+//     let answer = 0;
+//     let queue = begin.split('');
+//     let wordSplit = words.map( v=> v.split(''));
+//     let visited = [];
+//
+//     while (true) {
+//         if (queue.join('') === target) break;
+//         for (let i=0; i<wordSplit.length; i++){
+//             let count = 0;
+//             for (let j in wordSplit[i]) {
+//                 if (wordSplit[i][j] === queue[j]) {
+//                     count +=1;
+//                 }
+//                 if (count == wordSplit[i].length -1) break;
+//             }
+//
+//
+//             if (count == wordSplit[i].length -1) {
+//                 console.log(visited,'visited')
+//                 for (let s in wordSplit[i]) {
+//                     if (visited.includes(wordSplit[i][s])) break
+//                    if (queue[s] === wordSplit[i][s]) {
+//                         visited.push(wordSplit[i][s]);
+//                         console.log(queue, 'queue1111111111111111')
+//                     }
+//                     else {
+//                        queue[s] = wordSplit[i][s]
+//                    }
+//
+//                 }
+//             }
+//
+//             count = 0;
+//             console.log(queue, 'queue')
+//
+//             // console.log(visited,'visited')
+//         }
+//     }
+// }
+
+
 function solution(begin, target, words) {
     let answer = 0;
-    let queue = begin.split('');
-    let wordSplit = words.map( v=> v.split(''));
     let visited = [];
+    let queue = [];
 
-    while (true) {
-        if (queue.join('') === target) break;
-        for (let i=0; i<wordSplit.length; i++){
-            let count = 0;
-            for (let j in wordSplit[i]) {
-                if (wordSplit[i][j] === queue[j]) {
-                    count +=1;
-                }
-                if (count == wordSplit[i].length -1) break;
-            }
+    if(!words.includes(target)) return 0; //words배열에 target이 없으면 0을 반환
 
+    queue.push([begin,answer]); //일단 queue에 [시작단어, 변경횟수]를 배열형태로 넣는다.
 
-            if (count == wordSplit[i].length -1) {
-                console.log(visited,'visited')
-                for (let s in wordSplit[i]) {
-                    if (visited.includes(wordSplit[i][s])) break
-                   if (queue[s] === wordSplit[i][s]) {
-                        visited.push(wordSplit[i][s]);
-                        console.log(queue, 'queue1111111111111111')
-                    }
-                    else {
-                       queue[s] = wordSplit[i][s]
-                   }
+    while(queue) {
+        let [v, cnt] = queue.shift(); //queue의 맨 왼쪽 값을 꺼낸다.
+        console.log(v,'=================================')
 
-                }
-            }
-
-            count = 0;
-            console.log(queue, 'queue')
-
-            // console.log(visited,'visited')
+        if (v === target) { //꺼낸값의 v가 맞으면 cnt는 횟수 이므로 cnt를 return한다.
+            return cnt;
         }
+        // ["hot", "dot", "dog", "lot", "log", "cog"]
+        words.forEach(word => {
+            let notEqual = 0; //다른갯수를 구하기위해 변수를 선언한다.
+            console.log(words,notEqual,visited,'visited')
+            if(visited.includes(word)) return; //방문했던 단어면 pass
+
+            for (let i=0; i<word.length; i++) {
+                if (word[i] !== v[i]) notEqual++; //word를 반복하면서 다른 알파벳의 갯수를 체크한다
+                console.log(word[i],notEqual,'word[i]')
+            }
+
+            if (notEqual === 1) { //만약 다른게 1개라면
+                console.log(word,cnt,'2222222222222222222222')
+
+                queue.push([word, ++cnt]); //queue에 [단어, 횟수] 형태로 넣는다.
+                //처음으로 따지면 hit -> hot이 되었을 때가 1이 된다.
+                console.log(cnt,'33333333333333333333333333333333333333333')
+                visited.push(word); //방문처리를 해준다.
+            }
+        });
     }
+
+    return answer;
 }
+
 
 console.log(solution("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]))
 
