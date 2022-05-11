@@ -1,0 +1,28 @@
+  findRoad = (start, end, road, trap) => {
+        let q = [start];
+        let visited = [...q];
+        let result = 0;
+        
+        while (true){
+            let node = q.shift();
+            for(let i =0; i<road.length; i++) {
+                let time = road[i][2];
+                //if (visited.includes(road[i][1])) break;
+                if (road[i][0] === node){
+                    q.push(road[i][1])
+                    result += time;
+                    visited.push(road[i][1])
+                }
+                if (trap === road[i][0]) {
+                  for (let j=0; j<road.length; j++){\
+                      let startNode = road[j][0]
+                      road[j][0] = road[j][1];
+                      road[j][1] = startNode;
+                  }
+                }
+                
+                
+            }
+            
+        }    
+    }
