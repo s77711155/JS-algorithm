@@ -1,3 +1,8 @@
+/* bfs
+* 특정 조건에서의 최단 경로!
+* */
+
+//dfs() 은 특정 상황에서 최대한 김숲이 들어가서 노드 방문후 다시 돌아가 다른 경로 탐색
 function f(graph, startNode) {
     let visited = Array.from({length: graph.length}, () => false);
     let q = [startNode];
