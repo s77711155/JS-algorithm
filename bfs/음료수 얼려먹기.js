@@ -41,6 +41,7 @@ function sol(frame){
     }
 
     frame[0][0] =1
+    count +=1
     dfs(0,0)
     console.log(frame,'ff')
     return count
