@@ -7,13 +7,17 @@ function sol(a,b,k){
 
     for (let i=0; i<k;i++){
      if (a[i]<b[i]){
-         let temp = a[i]
-         a[i] = b[i]
-         b[i] = temp
+         // let temp = a[i]
+         // a[i] = b[i]
+         // b[i] = temp
+
+         // temp말구 구조 분해도 가능 ex)[arr[1], arr[2]] = [arr[2], arr[1]];
+         [a[i],b[i]] = [b[i],a[i]]
      }
     }
 
     a.forEach(v => result += v )
+    return result
 
 }
 
