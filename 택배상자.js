@@ -1,6 +1,7 @@
 function solution(order) {
     let answer = 0;
     const stack = [];
+    // idx로 기준점을 정해서 움직인다!!!!!!!!
     let idx = 0;
 
     for (let i = 1; i <= order.length; i++) {
