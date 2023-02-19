@@ -5,54 +5,54 @@
 // 알뜰한 정현이는 자신이 원하는 제품과 수량이 할인하는 날짜와 10일 연속으로 일치할 경우에 맞춰서
 
 
-function solution(want, number, discount) {
-    // 가입 날을 구하라
-    let obj = {}
-    let result;
-    for(let i in want){
-        let key = want[i]
-        let value = number[i]
-        obj[key] = value
-    }
-
-
-    for (let i=0; discount.length>i; i++){
-        // 10일간
-        let end = 10 + i >= discount.length-1 ? discount.length-1 :  10+i
-        end = i === 0 ? 1 : end
-        let tenPeriod = discount.slice(i, end);
-        let copyObj = Object.assign({}, obj);
-        let flag = true
-        for (let k in tenPeriod) {
-
-            if ( tenPeriod[k] in copyObj){// tenPeriod[k] in copyObj
-                copyObj[tenPeriod[k]] = copyObj[tenPeriod[k]] -1 < 0 ? 0:copyObj[tenPeriod[k]] -1
-
-            }else {
-                flag = false
-                break
-            }
-        }
-        if (!flag) continue
-
-        // values 0 -> turn
-        let bul = Object.values(copyObj).every((v) =>  v === 0)
-         console.log(Object.values(copyObj))
-        if (bul){
-            result = i +1
-            break
-        }
-
-    }
-
-
-    return result === undefined ? 0 : result
-}
-let w = ["banana", "apple", "rice", "pork", "pot"];
-let n = [3, 2, 2, 2, 1]
-let d =["chicken", "apple", "apple", "banana", "rice", "apple", "pork", "banana", "pork", "rice", "pot", "banana", "apple", "banana"]
-console.log(solution(w,n,d ))
-
+// function solution(want, number, discount) {
+//     // 가입 날을 구하라
+//     let obj = {}
+//     let result;
+//     for(let i in want){
+//         let key = want[i]
+//         let value = number[i]
+//         obj[key] = value
+//     }
+//
+//
+//     for (let i=0; discount.length>i; i++){
+//         // 10일간
+//         let end = 10 + i >= discount.length-1 ? discount.length-1 :  10+i
+//         end = i === 0 ? 1 : end
+//         let tenPeriod = discount.slice(i, end);
+//         let copyObj = Object.assign({}, obj);
+//         let flag = true
+//         for (let k in tenPeriod) {
+//
+//             if ( tenPeriod[k] in copyObj){// tenPeriod[k] in copyObj
+//                 copyObj[tenPeriod[k]] = copyObj[tenPeriod[k]] -1 < 0 ? 0:copyObj[tenPeriod[k]] -1
+//
+//             }else {
+//                 flag = false
+//                 break
+//             }
+//         }
+//         if (!flag) continue
+//
+//         // values 0 -> turn
+//         let bul = Object.values(copyObj).every((v) =>  v === 0)
+//          console.log(Object.values(copyObj))
+//         if (bul){
+//             result = i +1
+//             break
+//         }
+//
+//     }
+//
+//
+//     return result === undefined ? 0 : result
+// }
+// let w = ["banana", "apple", "rice", "pork", "pot"];
+// let n = [3, 2, 2, 2, 1]
+// let d =["chicken", "apple", "apple", "banana", "rice", "apple", "pork", "banana", "pork", "rice", "pot", "banana", "apple", "banana"]
+// console.log(solution(w,n,d ))
+//
 function solution(want, number, discount) {
     var answer = 0;
 
@@ -66,6 +66,7 @@ function solution(want, number, discount) {
     }
 
     for(let j = 0; j <= discount.length - 10; j++){
+        console.log(j,j+10,'j')
         var arr = discount.slice(j, j+10); // 10일동안 할인이 되므로 10개씩 배열을 잘라준다.
         if(isMatch(arr)){
             answer++;
@@ -73,3 +74,27 @@ function solution(want, number, discount) {
     }
     return answer;
 }
+
+// function solution(want, number, discount) {
+//     let answer = 0;
+//     const isMatch = (discount) => {
+//         const wantMap = new Map();
+//
+//         discount.forEach((d) => wantMap.set(d, (wantMap.get(d) || 0) + 1));
+//         console.log(wantMap,'wantMap')
+//         for (let i = 0; i < want.length; i++) {
+//             // 총개수가 10개로 정해져있기 때문에 값이 크더라도 탈락시킵니다
+//             if (wantMap.get(want[i]) !== number[i]) return false;
+//         }
+//         return true;
+//     };
+//     for (let idx = 0; idx <= discount.length - 10; idx++) {
+//         const d = discount.slice(idx, idx + 10);
+//         if (isMatch(d)) answer++;
+//     }
+//     return answer;
+// }
+let w = ["banana", "apple", "rice", "pork", "pot"];
+let n = [3, 2, 2, 2, 1]
+let d =["chicken", "apple", "apple", "banana", "rice", "apple", "pork", "banana", "pork", "rice", "pot", "banana", "apple", "banana"]
+console.log(solution(w,n,d ))
