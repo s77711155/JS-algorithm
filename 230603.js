@@ -31,3 +31,28 @@ function sol2(a){
 }
 const arr2 = [87,89,92,100,76]
 console.log(sol2(arr2))
+
+/*
+*  행과 열/ 가로세
+* arr[행][열로
+* * */
+// top,left, down, right
+const dx = [ -1, 0,1,0]
+const dy = [0,1,0,-1]
+
+
+//회문문자열
+function sol3(text){
+    text.toLowerCase()
+    text.split('')
+    // case1. 내장 함수를 사용하지않고
+    const len =text.length;
+    for (let i=0;i<len;i++){
+        // i만큼 빼줘야 반복문 i가 증가 될수록 행렬의 대각선 원리처럼 점진적 반대되는 비교값을 만날수 있다
+        if (text[i] !== text[len-i-1]) return "NO"
+    }
+
+    // case2. 내장 함수 사용 reverse
+    return  text.split('').reverse().join() !== text ? "NO" :  "YES"
+}
+console.log(sol3('Gooogg'))
