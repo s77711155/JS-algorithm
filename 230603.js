@@ -56,3 +56,39 @@ function sol3(text){
     return  text.split('').reverse().join() !== text ? "NO" :  "YES"
 }
 console.log(sol3('Gooogg'))
+
+
+// 가장 짧은 문자거리 구하기 한개의 문자열 문자 문자열sㅇ 문자 t와 떨어진 최소거리르 출
+// e, taecherrmode
+/* 문자 e 가 문자열에서 본인이 각 문자들과 거리가 얼마인지를 구하는 알고리즘 대신 e가 중복일 가능성도 있다. 그럼 최소일 경우만 노출@*/
+function sol4(){
+
+}
+
+
+// 완전탐색
+
+//Two pointer: 포인트를 두개를 둬서// 문제풀이 연속된 수열의 합이 n이 되는 수를 구하라
+
+// 탐욕 알고리즘은 말 그대로 선택의 순간마다 당장 눈앞에 보이는 최적의 상황만을 쫓아 최종적인 해답에 도달하는 방법이다.
+
+
+//스택
+//문제풀이
+//쇠막대기
+//
+function sol5(s){
+    let answer =0;
+    let stack=[]
+    for(let i=0; i<s.length;i++){
+        if (s[i]==='(')stack.push(s[i])
+        else {
+            stack.pop() // pop을 먼저헤줘야햄!!!!!!!!
+            if (s[i-1] === '(') answer +=(stack.length);
+            else answer+=1
+
+        }
+    }
+}
+
+console.log(sol5())
