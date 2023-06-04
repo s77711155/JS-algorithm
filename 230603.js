@@ -111,3 +111,28 @@ function DFS(v){
     }
     DFS(v)
 }
+
+//부분집합 구하기 DFS
+function sol6(){
+    let answer = []
+    let ch = Array.from({length:n+1},()=>0)
+    function DFS2(v){
+        if (v === n+1) {
+            let temp = ""
+            for (let i=1; i<=n; i++){
+                // check 조건에 따라뿌려지는 부분집합을 판단
+                if (ch[i]===1) tmep+= i+"";
+            }
+            if (temp.length>0) answer.push(temp.trim())
+        }
+        else {
+            ch[v] = 1
+            DFS(v+1)
+            ch[v]=0
+            DFS(V+1)
+        }
+        DFS(v)
+    }
+}
+
+// 합이 같은 부분집합
