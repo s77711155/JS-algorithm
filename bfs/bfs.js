@@ -10,6 +10,10 @@
  */
 
 //dfs() 은 특정 상황에서 최대한 김숲이 들어가서 노드 방문후 다시 돌아가 다른 경로 탐색, 백트래킹!
+/*
+* dfs
+*
+* */
 function f(graph, startNode) {
     let visited = Array.from({length: graph.length}, () => false);
     let q = [startNode];

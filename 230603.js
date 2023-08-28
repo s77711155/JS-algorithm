@@ -136,3 +136,49 @@ function sol6(){
 }
 
 // 합이 같은 부분집합
+// 내가 만든 부분집합 합으로 나머지 합이 내가 뽑지 않은 부분집합 서로소 합
+function sol7(arr){
+    let total = arr.reduce((a,b) => a+b,0)
+    function DFS(L,sum){
+        if (L===arr.length){
+            if ((total-sum)===sum){
+                console.log('출력')
+            }
+        } else {
+            // 그다음 레벨에서  sum 더한것
+            DFS(L+1,sum+arr[L])
+            // 그다음 레벨에서 더하지않은것
+            DFS(L+1,sum)
+        }
+    }
+}
+
+
+//BFS: queue=>선입선출
+// 상태트리: 출발 -> 도착 최단 거리 /레벨 탐색 //
+
+
+// 다이나믹
+
+// 계단오르기
+/*
+* 1.dy 이라는테이블 필요 => 방법의 수를 기재
+* dy[1] =  갈수 있는 방법의 수
+* ....
+* 점화식....
+* dy[3] =1에서 오거나 2에서 오는 방법 => 1의방법  + 2의 방법
+* dty[4] = dy[2] +dy[3] // 2계단이 최대라는 조건
+* */
+function sol9(){
+    let answer = 0;
+    let dy = Array.from({length:n+1},()=>0)
+    // 1th,2th 고정값
+    dy[1]=1;
+    dy[2] =2;
+
+    for (let i = 3; i<=n; i++){
+        // 2계단이 최대라는 조건 이여서
+        dy[i]= dy[i-2] +dy[i-1];
+    }
+    answer = dy[n]
+}
