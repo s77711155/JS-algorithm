@@ -18,3 +18,8 @@ let m =6
 let arr = [1,3,1,2,3]
 
 console.log(sol(m,arr))
+
+
+function sol2(){
+    
+}

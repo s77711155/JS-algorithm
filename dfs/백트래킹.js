@@ -6,6 +6,7 @@ function sol(n,m){
     let result = []
     function dfs(L){
         if (L===m){
+            console.log(check,'check')
             result.push(tmp.slice())
             return
         } else {
