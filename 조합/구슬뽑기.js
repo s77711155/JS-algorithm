@@ -16,5 +16,19 @@ function f(n,m) {
  dfs(0,1)
  return result
 }
+Number.MAX_SAFE_INTEGER
 
+// 조힙은 [1,2] [2,1]을 같은 거라 인식
+function sol(){
+    function dsf(){
+        if (){
+
+        }else {
+            for (){
+                dsf(L+1,i+1)
+            }
+        }
+    }
+
+}
 console.log(f(4,2))
